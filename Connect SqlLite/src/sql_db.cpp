@@ -19,6 +19,7 @@ int sql::menu()
 
 void sql::printData()
 {
+	basic::clear();
 	basic::printTable(table);
 }
 
@@ -65,7 +66,7 @@ void sql::addData()
 	}
 
 	basic::clear();
-
+	std::cin.ignore();
 	LOG("Name: ");
 	std::getline(std::cin, name);
 	LOG("Umur: ");
@@ -95,6 +96,18 @@ int  sql::delData()
 	command = "DELETE FROM home WHERE id = " + quoting(choose) + ";";
 	sqlite3_prepare(db, command.c_str(), -1, &execution, NULL);
 	sqlite3_step(execution);
+}
+
+bool sql::reqExit()
+{
+	basic::clear();
+	std::string answer{};
+	std::cin.ignore();
+	LOG("Do you want to exit (y/n):");
+	std::getline(std::cin, answer);
+	if (answer == "y")
+		return true;
+	return false;
 }
 
 sql::~sql()

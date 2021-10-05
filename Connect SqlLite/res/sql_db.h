@@ -38,6 +38,8 @@ public:
 	/// <returns></returns>
 	int delData();
 
+	bool reqExit();
+
 	/// Close the DB automatically when the programs end 
 	~sql();
 };
