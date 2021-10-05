@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include <stdio.h>
 #include <vector>
+
+#include <stdio.h>
 
 // Defining basic I/O utility
 /// Print with nextline

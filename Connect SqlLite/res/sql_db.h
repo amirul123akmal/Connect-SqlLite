@@ -18,6 +18,9 @@ private:
 	/// We need to use vector because we dont know how big the table is
 	std::vector<std::vector<std::string>> table{};
 
+	void getData();
+	std::string quoting(std::string data);
+
 public:
 	/// Initialized, open and save db in memory
 	/// <param name="filename">home.db</param>
@@ -25,7 +28,7 @@ public:
 
 	int menu();
 
-	void getData();
+	void printData();
 
 	void addData();
 

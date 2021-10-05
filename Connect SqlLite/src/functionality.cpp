@@ -48,7 +48,7 @@ namespace basic
 	{
 		for (int i = 0; i < table.size() ;i++)
 		{
-			for (int j = 0; j < table[i].size() - 1; j++)
+			for (int j = 0; j < table[i].size(); j++)
 			{
 				LOG(" " + table[i][j]);
 			}

@@ -3,16 +3,23 @@
 sql::sql(const char filename[])
 {
 	sqlite3_open(filename, &db);
+	getData();
 }
 
 int sql::menu()
 {
+	basic::clear();
 	int user;
 	basic::printColor("1. Family Members\n", 2);
 	basic::printColor("2. Add New Data\n", 3);
 	basic::printColor("3. Delete Data\n", 1);
 	std::cin >> user;
 	return user;
+}
+
+void sql::printData()
+{
+	basic::printTable(table);
 }
 
 void sql::getData()
@@ -37,18 +44,46 @@ void sql::getData()
 		table.push_back(column);
 		sqlite3_step(execution);
 	}
-	basic::printTable(table);
+}
+
+std::string sql::quoting(std::string data)
+{
+	return std::string("'") + data + std::string("'");
 }
 
 void sql::addData()
 {
-	// Dynamically scan db column and retrieve data
-	// Than request user
+	int id = 0;
+	std::string umur{};
+	std::string name{};
+	std::string noTel{};
+
+	getData(); // To check if there any update on the database
+	for (int i = 0;i < table.size(); i++)
+	{
+		id = std::stoi(table[i][0]);
+	}
+
+	basic::clear();
+
+	LOG("Name: ");
+	std::getline(std::cin, name);
+	LOG("Umur: ");
+	std::getline(std::cin, umur);
+	LOG("NoTel: ");
+	std::getline(std::cin, noTel);
+	command = "INSERT INTO home VALUES("
+		+ quoting(std::to_string(++id)) + "," 
+		+ quoting(name) + "," 
+		+ quoting(umur) + "," 
+		+ quoting(noTel) + ");";
+
+	sqlite3_prepare(db,command.c_str(), -1, &execution, NULL );
+	sqlite3_step(execution);
 }
 
 void sql::delData()
 {
-
 }
 
 sql::~sql()
