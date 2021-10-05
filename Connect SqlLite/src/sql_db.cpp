@@ -19,6 +19,7 @@ int sql::menu()
 
 void sql::printData()
 {
+	getData();
 	basic::clear();
 	basic::printTable(table);
 }
@@ -87,6 +88,7 @@ int  sql::delData()
 {
 	std::string choose{};
 	getData();
+	basic::clear();
 	basic::printTable(table);
 	printf("\nType 'cancel' to cancel the operation");
 	printf("\nWhich ID do you want to delete (at the front of every line): ");

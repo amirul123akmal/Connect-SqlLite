@@ -9,6 +9,8 @@ loop_start:
 	{
 	case 1:
 		manage.printData();
+		std::cin.ignore();
+		std::cin.get();
 		break;
 	case 2:
 		manage.addData();
@@ -22,9 +24,7 @@ loop_start:
 		goto ending;
 		break;
 	}
-	std::cin.ignore();
-	std::cin.get();
 	goto loop_start;
 ending:
-	std::cin.get();
+	CONSOLE("");
 }

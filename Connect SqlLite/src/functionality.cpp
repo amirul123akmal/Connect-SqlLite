@@ -50,7 +50,14 @@ namespace basic
 		{
 			for (int j = 0; j < table[i].size(); j++)
 			{
-				LOG(" " + table[i][j]);
+				if (j == 0)
+					printColor(" " + table[i][j], 6);
+				if (j == 1)
+					printColor(" " + table[i][j], 5);
+				if (j == 2)
+					printColor(" " + table[i][j], 4);
+				if (j == 3)
+					printColor(" " + table[i][j], 2);
 			}
 			LOG("\n");
 		}
