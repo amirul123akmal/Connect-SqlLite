@@ -82,8 +82,19 @@ void sql::addData()
 	sqlite3_step(execution);
 }
 
-void sql::delData()
+int  sql::delData()
 {
+	std::string choose{};
+	getData();
+	basic::printTable(table);
+	printf("\nType 'cancel' to cancel the operation");
+	printf("\nWhich ID do you want to delete (at the front of every line): ");
+	std::cin >> choose;
+	if (choose == "cancel")
+		return 0;
+	command = "DELETE FROM home WHERE id = " + quoting(choose) + ";";
+	sqlite3_prepare(db, command.c_str(), -1, &execution, NULL);
+	sqlite3_step(execution);
 }
 
 sql::~sql()

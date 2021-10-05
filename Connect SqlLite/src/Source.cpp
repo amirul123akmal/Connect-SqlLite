@@ -4,6 +4,6 @@
 int main(int argc, char **argv)
 {
 	sql manage("home.db");
-	manage.addData();
+	manage.delData();
 	std::cin.get();
 }

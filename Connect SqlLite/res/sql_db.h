@@ -32,7 +32,11 @@ public:
 
 	void addData();
 
-	void delData();
+	/// <summary>
+	/// Will return 0 if the operation gettin canceled
+	/// </summary>
+	/// <returns></returns>
+	int delData();
 
 	/// Close the DB automatically when the programs end 
 	~sql();
