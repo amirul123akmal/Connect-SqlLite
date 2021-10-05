@@ -44,4 +44,15 @@ namespace basic
 		printf("\033[0;37m");
 		
 	}
+	void printTable(const std::vector<std::vector<std::string>>& table)
+	{
+		for (int i = 0; i < table.size() ;i++)
+		{
+			for (int j = 0; j < table[i].size() - 1; j++)
+			{
+				LOG(" " + table[i][j]);
+			}
+			LOG("\n");
+		}
+	}
 }

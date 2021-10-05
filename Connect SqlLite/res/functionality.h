@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <vector>
 
-#include <sqlite3.h>
-
 // Defining basic I/O utility
 /// Print with nextline
 #define CONSOLE(x) std::cout << x << std::endl
@@ -27,4 +25,10 @@ namespace basic
 	/// <param name="text"></param>
 	/// <param name="color"></param>
 	void printColor(const std::string& text, const int& color);
+
+	/// <summary>
+	/// Need to pass the table
+	/// </summary>
+	/// <param name="table"></param>
+	void printTable(const std::vector<std::vector<std::string>>& table);
 }
