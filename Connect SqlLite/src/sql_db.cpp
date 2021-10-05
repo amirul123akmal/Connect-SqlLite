@@ -10,6 +10,7 @@ int sql::menu()
 {
 	basic::clear();
 	int user;
+	basic::printColor("Enter other than 1, 2, 3 to exit\nEvery pause, please press 'Enter'at your keyboard\n\n", 6);
 	basic::printColor("1. Family Members\n", 2);
 	basic::printColor("2. Add New Data\n", 3);
 	basic::printColor("3. Delete Data\n", 1);
